@@ -15,6 +15,9 @@ use App\Models\MergejilBagsh;
 
 class TeachersController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth:teacher');
+    }
 
     public function index()
     {

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 use App\Models\Teachers;
 
@@ -22,7 +23,7 @@ class TeachersSeeder extends Seeder
             'register' => 'ХЫ85032921',
             'huis' => 'er',
             'code' => '12345678',
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             'phone' => '88118811',
             'image' => null,
             'address' => null,
@@ -40,7 +41,7 @@ class TeachersSeeder extends Seeder
             'register' => 'РБ83021534',
             'huis' => 'er',
             'code' => '12345679',
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             'phone' => '87323388',
             'image' => null,
             'address' => null,
@@ -58,7 +59,7 @@ class TeachersSeeder extends Seeder
             'register' => 'ХЫ85032921',
             'huis' => 'em',
             'code' => '12345677',
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             'phone' => '99118811',
             'image' => null,
             'address' => null,
@@ -76,7 +77,7 @@ class TeachersSeeder extends Seeder
             'register' => 'ХЫ85032921',
             'huis' => 'em',
             'code' => '12345670',
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             'phone' => '99118811',
             'image' => null,
             'address' => null,
@@ -94,7 +95,7 @@ class TeachersSeeder extends Seeder
             'register' => 'ХЫ85032921',
             'huis' => 'em',
             'code' => '12345699',
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             'phone' => '99118811',
             'image' => null,
             'address' => null,

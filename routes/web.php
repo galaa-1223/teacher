@@ -5,15 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\TeacherAuthController;
 
 use App\Http\Controllers\Teacher\TeacherController;
-use App\Http\Controllers\Teacher\TeachersController as TeachersController;
-use App\Http\Controllers\Teacher\StudentsController as StudentsController;
-use App\Http\Controllers\Teacher\AngiController as AngiController;
-use App\Http\Controllers\Teacher\HicheelController as HicheelController;
-use App\Http\Controllers\Teacher\HuvaariController as HuvaariController;
-use App\Http\Controllers\Teacher\MergejilController as MergejilController;
-use App\Http\Controllers\Teacher\MergejilBagshController as MergejilBagshController;
-use App\Http\Controllers\Teacher\TenhimController as TenhimController;
-use App\Http\Controllers\Teacher\SettingsController as SettingsController;
+
+use App\Http\Controllers\Teacher\TeachersController;
+use App\Http\Controllers\Teacher\StudentsController;
+use App\Http\Controllers\Teacher\AngiController;
+use App\Http\Controllers\Teacher\HicheelController;
+use App\Http\Controllers\Teacher\HuvaariController;
+use App\Http\Controllers\Teacher\MergejilController;
+use App\Http\Controllers\Teacher\MergejilBagshController;
+use App\Http\Controllers\Teacher\TenhimController;
+use App\Http\Controllers\Teacher\SettingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,10 +32,10 @@ Route::get('/', function () {
 Auth::routes();
 
 /****************************************************************************/
-/********************************** MANAGER *********************************/
+/********************************** TEACHER *********************************/
 /****************************************************************************/
 
-// Manager Login
+// Teacher Login
 Route::get('teacher', [TeacherAuthController::class, 'teacherGet'])->name('teacherLogin');
 Route::get('teacher/login', [TeacherAuthController::class, 'teacherGetLogin'])->name('teacherLogin');
 Route::post('teacher/login', [TeacherAuthController::class, 'teacherLogin'])->name('teacherLoginPost');
