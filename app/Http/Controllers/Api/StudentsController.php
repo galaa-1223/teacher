@@ -66,7 +66,7 @@ class StudentsController extends Controller
 
         if(!$request->has('sorters') && !$request->has('filters')){
 
-            $student = Students::select('students.id', 'students.ner', 'students.ovog', 'students.image','students.code', 'students.status', 'angi.ner as angi', 'angi.course', 'angi.buleg')
+            $student = Students::select('students.id', 'students.ner', 'students.ovog', 'students.image','students.code', 'students.status', 'angi.ner as angi', 'angi.tovch as angi_tovch', 'angi.course', 'angi.buleg')
                             ->join('angi', 'angi.id', '=', 'students.a_id')
                             ->orderBy('ner', 'asc')
                             ->get();

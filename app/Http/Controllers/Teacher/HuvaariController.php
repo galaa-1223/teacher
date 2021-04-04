@@ -16,46 +16,21 @@ class HuvaariController extends Controller
     {
         $pageTitle = 'Хичээлийн хуваарь';
         $pageName = 'huvaari';
-        $huvaari = Huvaari::orderBy('created_at', 'desc')->paginate(9);
-
+        $huvaariud = Huvaari::select('huvaari.*', 'angi.ner AS angi_ner', 'angi.tovch AS angi_tovch', 'angi.b_id AS angi_bagsh', 'angi.m_id AS angi_mergejil', 'hicheel.ner as hicheel', 'hicheel.tovch as hicheel_tovch')
+                            ->join('fond', 'fond.id', '=', 'huvaari.f_id')
+                            ->join('hicheel', 'hicheel.id', '=', 'fond.h_id')
+                            ->join('angi', 'angi.id', '=', 'fond.a_id')
+                            ->where('fond.t_id', Auth::guard('teacher')->user()->id)->get();
         $activeMenu = activeMenu($pageName);
 
         return view('teacher/pages/'.$pageName.'/index', [
             'first_page_name' => $activeMenu['first_page_name'],
             'page_title' => $pageTitle,
             'page_name' => $pageName,
-            'huvaari' => $huvaari,
+            'huvaariud' => $huvaariud,
             'user' => Auth::guard('teacher')->user()
         ]);
     }
 
-    public function add()
-    {
-        $pageTitle = 'Хичээл нэмэх';
-        $pageName = 'huvaari';
-
-        $activeMenu = activeMenu($pageName);
-
-        return view('teacher/pages/'.$pageName.'/add', [
-            'first_page_name' => $activeMenu['first_page_name'],
-            'page_title' => $pageTitle,
-            'page_name' => $pageName,
-            'user' => Auth::guard('teacher')->user()
-        ]);
-    }
-
-    public function bagsh($id)
-    {
-        $pageTitle = 'Багшийн хуваарь';
-        $pageName = 'huvaari';
-
-        $activeMenu = activeMenu($pageName);
-
-        return view('teacher/pages/'.$pageName.'/huvaari', [
-            'first_page_name' => $activeMenu['first_page_name'],
-            'page_title' => $pageTitle,
-            'page_name' => $pageName,
-            'user' => Auth::guard('teacher')->user()
-        ]);
-    }
+    
 }

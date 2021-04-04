@@ -141,34 +141,9 @@ import Tabulator from "tabulator-tables";
                     download: false,
                     headerSort:false,
                     formatter(cell, formatterParams) {
-                        return `<div class="flex items-center lg:justify-center ${
-                            cell.getData().status
-                                ? "text-theme-9"
-                                : "text-theme-6"
-                        }">
-                            <i data-feather="check-square" class="w-4 h-4 mr-2"></i> ${
-                                cell.getData().status ? "Active" : "Inactive"
-                            }
-                        </div>`;
-                    },
-                },
-                {
-                    title: "ҮЙЛДЭЛ",
-                    minWidth: 200,
-                    field: "actions",
-                    hozAlign: "center",
-                    vertAlign: "middle",
-                    responsive: 1,
-                    print: false,
-                    download: false,
-                    headerSort:false,
-                    formatter(cell, formatterParams) {
-                        var a = cash("<div class=\"flex lg:justify-center items-center\">\n                            <a class=\"edit flex items-center mr-3\" href='/bigg/teachers/edit/" + cell.getData().id + "'>\n                                <i data-feather=\"check-square\" class=\"w-4 h-4 mr-1\"></i> Засах\n                            </a>\n                            <a class=\"delete flex items-center text-theme-6\" href=\"javascript:;\">\n                                <i data-feather=\"trash-2\" class=\"w-4 h-4 mr-1\"></i> Устгах\n                            </a>\n                        </div>");
-                        cash(a).find(".delete").on("click", function () {
-                            Did = cell.getData().id;
-                            cash("#delete-confirmation-modal").modal("show");
-                        });
-                        return a[0];
+                        return `<div class="flex items-center lg:justify-center ${getStatusStyle(cell.getData().status)}">
+                                    <i data-feather="check-square" class="w-4 h-4 mr-2"></i> ${getStatus(cell.getData().status)}
+                                </div>`;
                     },
                 },
 
@@ -400,6 +375,15 @@ import Tabulator from "tabulator-tables";
                     },
                 },
                 {
+                    title: "ОЮУТНЫ КОД",
+                    minWidth: 200,
+                    field: "code",
+                    hozAlign: "center",
+                    vertAlign: "middle",
+                    print: false,
+                    download: false
+                },
+                {
                     title: "ЗУРАГ",
                     minWidth: 200,
                     field: "image",
@@ -409,7 +393,7 @@ import Tabulator from "tabulator-tables";
                     download: false,
                     headerSort:false,
                     formatter(cell, formatterParams) {
-                        let image = (cell.getData().image == null) ? "/dist/images/Blank-avatar.png" : "/uploads/teachers/thumbs/" + cell.getData().image;
+                        let image = (cell.getData().image == null) ? "/dist/images/Blank-avatar.png" : "/uploads/students/thumbs/" + cell.getData().image;
                         return `<div class="flex lg:justify-center">
                             <div class="intro-x w-10 h-10 image-fit">
                                 <img alt="BiGG system" class="rounded-full" src="${image}">
@@ -418,9 +402,9 @@ import Tabulator from "tabulator-tables";
                     },
                 },
                 {
-                    title: "ОЮУТНЫ КОД",
+                    title: "АНГИ",
                     minWidth: 200,
-                    field: "code",
+                    field: "angi_tovch",
                     hozAlign: "center",
                     vertAlign: "middle",
                     print: false,
@@ -456,25 +440,6 @@ import Tabulator from "tabulator-tables";
                         return `<div class="flex items-center lg:justify-center ${clss}">
                             <i data-feather="check-square" class="w-4 h-4 mr-2"></i> ${text}
                         </div>`;
-                    },
-                },
-                {
-                    title: "ҮЙЛДЭЛ",
-                    minWidth: 200,
-                    field: "actions",
-                    hozAlign: "center",
-                    vertAlign: "middle",
-                    responsive: 1,
-                    print: false,
-                    download: false,
-                    headerSort:false,
-                    formatter(cell, formatterParams) {
-                        var a = cash("<div class=\"flex lg:justify-center items-center\">\n                            <a class=\"edit flex items-center mr-3\" href='/bigg/teachers/edit/" + cell.getData().id + "'>\n                                <i data-feather=\"check-square\" class=\"w-4 h-4 mr-1\"></i> Засах\n                            </a>\n                            <a class=\"delete flex items-center text-theme-6\" href=\"javascript:;\">\n                                <i data-feather=\"trash-2\" class=\"w-4 h-4 mr-1\"></i> Устгах\n                            </a>\n                        </div>");
-                        cash(a).find(".delete").on("click", function () {
-                            Did = cell.getData().id;
-                            cash("#delete-confirmation-modal").modal("show");
-                        });
-                        return a[0];
                     },
                 },
 
@@ -1287,3 +1252,55 @@ import Tabulator from "tabulator-tables";
     }
 
 })(cash);
+
+function getStatus(value = '1'){
+    var text = '';
+
+    switch(value) {
+        case "1":
+            text = "Ажиллаж байгаа";
+            break;
+        case "2":
+            text = "Халагдсан";
+            break;
+        case "3":
+            text = "Тэтгэвэрт";
+            break;
+        case "4":
+            text = "Цагийн багш";
+            break;
+        case "5":
+            text = "Декреттэй";
+            break;
+        default:
+            text = "Тодорхойгүй";
+    }
+
+    return text;
+}
+
+function getStatusStyle(value = '1'){
+    var text = '';
+
+    switch(value) {
+        case "1":
+            text = "text-theme-9";
+            break;
+        case "2":
+            text = "text-theme-6";
+            break;
+        case "3":
+            text = "text-theme-11";
+            break;
+        case "4":
+            text = "text-theme-19";
+            break;
+        case "5":
+            text = "text-theme-11";
+            break;
+        default:
+            text = "text-theme-6";
+    }
+
+    return text;
+}

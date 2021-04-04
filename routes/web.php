@@ -15,6 +15,10 @@ use App\Http\Controllers\Teacher\MergejilController;
 use App\Http\Controllers\Teacher\MergejilBagshController;
 use App\Http\Controllers\Teacher\TenhimController;
 use App\Http\Controllers\Teacher\SettingsController;
+use App\Http\Controllers\Teacher\FondController;
+use App\Http\Controllers\Teacher\IrtsController;
+use App\Http\Controllers\Teacher\YavtsController;
+use App\Http\Controllers\Teacher\EschoolController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,14 +61,20 @@ Route::group(['prefix' => 'teacher','middleware' => 'teacherauth'], function () 
 	Route::delete('teachers/delete/{id}',[TeachersController::class, 'destroy'])->name('teacher-teachers-delete');
 
 	// Angi
-	Route::get('angi',[AngiController::class, 'index'])->name('teacher-angi');
-	Route::get('angi/add',[AngiController::class, 'add'])->name('teacher-angi-add');
-	Route::get('angi/edit/{id}',[AngiController::class, 'edit'])->name('angi-edit');
+	Route::get('angiud',[AngiController::class, 'index'])->name('teacher-angi');
+	Route::get('angi_students',[AngiController::class, 'students'])->name('teacher-angi-students');
+	Route::get('angi_huvaari',[AngiController::class, 'huvaari'])->name('teacher-angi-huvaari');
+	Route::get('angi_irts',[AngiController::class, 'irts'])->name('teacher-angi-irts');
+	Route::get('angi_yavts',[AngiController::class, 'yavts'])->name('teacher-angi-yavts');
 
-	Route::post('angi/add',[AngiController::class, 'store'])->name('teacher-angi-save');
-	Route::post('angi/edit/{id}',[AngiController::class, 'update'])->name('teacher-angi-edit');
+	// Fond
+	Route::get('fond',[FondController::class, 'index'])->name('teacher-fond');
 
-	Route::delete('angi/delete/{id}',[AngiController::class, 'destroy'])->name('teacher-angi-delete');
+	// Irts
+	Route::get('irts',[IrtsController::class, 'index'])->name('teacher-irts');
+
+	// Yavts
+	Route::get('yavts',[YavtsController::class, 'index'])->name('teacher-yavts');
 
 	// Mergejil
 	Route::get('mergejil',[MergejilController::class, 'index'])->name('teacher-mergejil');
@@ -89,14 +99,6 @@ Route::group(['prefix' => 'teacher','middleware' => 'teacherauth'], function () 
 
 	// Tenhim
 	Route::get('tenhim',[TenhimController::class, 'index'])->name('teacher-tenhim');
-	Route::get('tenhim/add',[TenhimController::class, 'add'])->name('teacher-tenhim-add');
-	Route::get('tenhim/edit/{id}',[TenhimController::class, 'edit'])->name('tenhim-edit');
-
-	Route::post('tenhim/add',[TenhimController::class, 'store'])->name('teacher-tenhim-save');
-	Route::post('tenhim/edit/{id}',[TenhimController::class, 'update'])->name('teacher-tenhim-edit');
-	Route::post('tenhim/delete/',[TenhimController::class, 'delete'])->name('teacher-tenhim-delete-ajax');
-
-	Route::delete('tenhim/delete/{id}',[TenhimController::class, 'destroy'])->name('teacher-tenhim-delete');
 
 	// Hicheel
 	Route::get('hicheel',[HicheelController::class, 'index'])->name('teacher-hicheel');
@@ -122,10 +124,16 @@ Route::group(['prefix' => 'teacher','middleware' => 'teacherauth'], function () 
 	Route::post('students/edit/{id}',[StudentsController::class, 'update'])->name('teacher-students-edit');
 	Route::post('students/delete/',[StudentsController::class, 'delete'])->name('teacher-students-delete-ajax');
 
+	// Eschool
+	Route::get('eschool',[EschoolController::class, 'index'])->name('teacher-eschool');
+
 	// Settings
 	Route::get('settings',[SettingsController::class, 'index'])->name('teacher-settings');
 	Route::get('settings/password',[SettingsController::class, 'password'])->name('teacher-settings-password');
 	Route::get('settings/huvaari',[SettingsController::class, 'huvaari'])->name('teacher-settings-huvaari');
+
+	Route::post('settings/changePassword',[SettingsController::class, 'changePassword'])->name('teacher-settings-changepassword');
+	Route::post('settings/changePicture/{id}',[SettingsController::class, 'changePicture'])->name('teacher-settings-changepicture');
 });
 
 

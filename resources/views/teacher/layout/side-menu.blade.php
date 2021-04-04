@@ -10,9 +10,9 @@
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
             <a href="" class="intro-x flex items-center pl-5 pt-4">
-                <img alt="Midone Tailwind HTML teacher Template" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
-                <span class="hidden xl:block text-white text-lg ml-1">
-                    <span class="font-medium">BiGG</span> systems
+                <img alt="{{ config('settings.site_name') }}" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
+                <span class="hidden xl:block text-white text-lg ml-3">
+                    <span class="font-medium">BiGG</span> system 1.0
                 </span>
             </a>
             <div class="side-nav__devider my-6"></div>

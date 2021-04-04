@@ -8,7 +8,7 @@ mix.js("resources/js/app.js", "public/dist/js")
         postCss: [tailwindcss("./tailwind.config.js")],
     })
     .autoload({
-        "cash-dom": ["$"],
+        "cash-dom": ["cash"],
     })
     .copyDirectory("resources/fonts", "public/dist/fonts")
     .copyDirectory("resources/images", "public/dist/images")

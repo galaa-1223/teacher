@@ -15,7 +15,7 @@
                 <div class="intro-x text-6xl font-medium">@yield('code')</div>
                 <div class="intro-x text-xl lg:text-3xl font-medium mt-5">Алдаа гарлаа!</div>
                 <div class="intro-x text-lg mt-3">@yield('message')</div><br/>
-                <a href="javascript:;" onclick="window.history.back()" class="intro-x button button--lg border border-white dark:border-dark-5 dark:text-gray-300 mt-30">Буцах</a>
+                <a href="javascript:;" onclick="window.history.back()" class="intro-x btn btn--lg border border-white dark:border-dark-5 dark:text-gray-300 mt-30">Буцах</a>
             </div>
         </div>
         <!-- END: Error Page -->

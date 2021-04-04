@@ -38,92 +38,26 @@ return [
                     'title' => 'Мэргэжил',
                     'link' => '/teacher/mergejil'
                 ],
-                'mergejil_bagsh' => [
+                'angiud' => [
                     'icon' => 'codepen',
-                    'page_name' => 'mergejil_bagsh',
-                    'title' => 'Мэргэжил багш',
-                    'link' => '/teacher/mergejil_bagsh'
+                    'page_name' => 'angiud',
+                    'title' => 'Ангиуд',
+                    'link' => '/teacher/angiud'
                 ],
-                'hicheels' => [
-                    'icon' => 'book',
-                    'page_name' => 'hicheels',
-                    'title' => 'Хичээлүүд',
-                    'link' => '/teacher/hicheels'
+                'teachers' => [
+                    'icon' => 'user',
+                    'page_name' => 'teachers',
+                    'title' => 'Багш нар',
+                    'link' => '/teacher/teachers'
+                ],
+                'students' => [
+                    'icon' => 'users',
+                    'page_name' => 'students',
+                    'title' => 'Оюутан',
+                    'link' => '/teacher/students'
                 ]
                 
             ]
-        ],
-        'teachers' => [
-            'icon' => 'user',
-            'page_name' => 'teachers',
-            'title' => 'Багш',
-            'link' => null,
-            'sub_menu' => [
-                'teachers' => [
-                    'icon' => 'user-plus',
-                    'page_name' => 'teachers-add',
-                    'title' => 'Багш нэмэх',
-                    'link' => '/teacher/teachers/add'
-                ],
-                'teachers-lists' => [
-                    'icon' => 'user',
-                    'page_name' => 'teachers-lists',
-                    'title' => 'Багш жагсаалт',
-                    'link' => '/teacher/teachers'
-                ],
-                'teachers-fond' => [
-                    'icon' => 'book',
-                    'page_name' => 'teachers-fond',
-                    'title' => 'Хичээл',
-                    'link' => '/teacher/hicheel'
-                ]
-            ]
-        ],
-        'students' => [
-            'icon' => 'users',
-            'page_name' => 'students',
-            'title' => 'Оюутан',
-            'link' => null,
-            'sub_menu' => [
-                'students' => [
-                    'icon' => 'plus',
-                    'page_name' => 'students-add',
-                    'title' => 'Оюутан нэмэх',
-                    'link' => '/teacher/students/add'
-                ],
-                'students-lists' => [
-                    'icon' => 'list',
-                    'page_name' => 'students-lists',
-                    'title' => 'Оюутан жагсаалт',
-                    'link' => '/teacher/students'
-                ]
-            ]
-        ],
-        'angi' => [
-            'icon' => 'briefcase',
-            'page_name' => 'angi',
-            'title' => 'Анги',
-            'link' => null,
-            'sub_menu' => [
-                'angi' => [
-                    'icon' => 'plus',
-                    'page_name' => 'angi-add',
-                    'title' => 'Анги нэмэх',
-                    'link' => '/teacher/angi/add'
-                ],
-                'angi-lists' => [
-                    'icon' => 'list',
-                    'page_name' => 'angi-lists',
-                    'title' => 'Анги жагсаалт',
-                    'link' => '/teacher/angi'
-                ]
-            ]
-        ],
-        'huvaari' => [
-            'icon' => 'calendar',
-            'page_name' => 'huvaari',
-            'title' => 'Хичээлийн хуваарь',
-            'link' => '/teacher/huvaari'
         ],
         'study' => [
             'icon' => 'book-open',
@@ -131,45 +65,83 @@ return [
             'title' => 'Сургалт',
             'link' => null,
             'sub_menu' => [
-                'students' => [
-                    'icon' => 'watch',
-                    'page_name' => 'students-add',
-                    'title' => 'Ирц',
-                    'link' => '/teacher/students/add'
+                'fond' => [
+                    'icon' => 'calendar',
+                    'page_name' => 'fond',
+                    'title' => 'Цагийн фонд',
+                    'link' => '/teacher/fond'
                 ],
-                'news-lists' => [
+                'huvaari' => [
                     'icon' => 'edit',
-                    'page_name' => 'students-lists',
+                    'page_name' => 'huvaari',
+                    'title' => 'Хичээлийн хуваарь',
+                    'link' => '/teacher/huvaari'
+                ],
+                'irts' => [
+                    'icon' => 'edit',
+                    'page_name' => 'irts',
+                    'title' => 'Ирц',
+                    'link' => '/teacher/irts'
+                ],
+                'yavts' => [
+                    'icon' => 'edit',
+                    'page_name' => 'yavts',
                     'title' => 'Явц',
-                    'link' => '/teacher/students'
+                    'link' => '/teacher/yavts'
+                ],
+            ]
+        ],
+        
+        'angi' => [
+            'icon' => 'briefcase',
+            'page_name' => 'angi',
+            'title' => 'Анги',
+            'link' => null,
+            'sub_menu' => [
+                'students' => [
+                    'icon' => 'plus',
+                    'page_name' => 'students',
+                    'title' => 'Оюутнууд',
+                    'link' => '/teacher/angi_students'
+                ],
+                'huvaari' => [
+                    'icon' => 'list',
+                    'page_name' => 'huvaari',
+                    'title' => 'Хичээлийн хуваарь',
+                    'link' => '/teacher/angi_huvaari'
+                ],
+                'irts' => [
+                    'icon' => 'plus',
+                    'page_name' => 'irts',
+                    'title' => 'Ирц',
+                    'link' => '/teacher/angi_irts'
+                ],
+                'yavts' => [
+                    'icon' => 'list',
+                    'page_name' => 'yavts',
+                    'title' => 'Явц',
+                    'link' => '/teacher/angi_yavts'
                 ]
             ]
         ],
+        'calendar' => [
+            'icon' => 'calendar',
+            'page_name' => 'calendar',
+            'title' => 'Үйл явдал',
+            'link' => '/teacher/calendar'
+        ],
+        
         'eschool' => [
             'icon' => 'smartphone',
             'page_name' => 'eschool',
             'title' => 'Eschool',
-            'link' => null,
-            'sub_menu' => [
-                'ehicheel' => [
-                    'icon' => 'watch',
-                    'page_name' => 'ehicheel',
-                    'title' => 'Хичээл',
-                    'link' => '/teacher/students/add'
-                ],
-                'edaalgavar' => [
-                    'icon' => 'edit',
-                    'page_name' => 'edaalgavar',
-                    'title' => 'Даалгавар',
-                    'link' => '/teacher/students'
-                ],
-                'eshalgalt' => [
-                    'icon' => 'edit',
-                    'page_name' => 'eshalgalt',
-                    'title' => 'Шалгалт',
-                    'link' => '/teacher/students'
-                ]
-            ]
+            'link' => '/teacher/eschool'
+        ],
+        'news' => [
+            'icon' => 'message-square',
+            'page_name' => 'news',
+            'title' => 'Мэдээ, мэдээлэл',
+            'link' => '#'
         ],
         'settings' => [
             'icon' => 'settings',
@@ -180,7 +152,7 @@ return [
         
     ],
 
-    'teacher_title' => 'Сургалтын алба талбар',
+    'teacher_title' => 'Багшийн талбар',
 
     'name' => env('APP_NAME', 'Laravel'),
 
