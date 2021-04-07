@@ -19,6 +19,9 @@ use App\Http\Controllers\Teacher\FondController;
 use App\Http\Controllers\Teacher\IrtsController;
 use App\Http\Controllers\Teacher\YavtsController;
 use App\Http\Controllers\Teacher\EschoolController;
+use App\Http\Controllers\Teacher\AguulgaController;
+use App\Http\Controllers\Teacher\EventController;
+use App\Http\Controllers\teacher\ShalgaltController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -111,6 +114,17 @@ Route::group(['prefix' => 'teacher','middleware' => 'teacherauth'], function () 
 
 	Route::delete('hicheel/delete/{id}',[HicheelController::class, 'destroy'])->name('teacher-hicheel-delete');
 
+	// Shalgalt
+	Route::get('shalgalt',[ShalgaltController::class, 'index'])->name('teacher-shalgalt');
+	Route::get('shalgalt/add',[ShalgaltController::class, 'add'])->name('teacher-shalgalt-add');
+	Route::get('shalgalt/asuult/{id}',[ShalgaltController::class, 'asuult'])->name('teacher-shalgalt-asuult');
+	Route::get('shalgalt/asuult/{id}/add',[ShalgaltController::class, 'asuult_add'])->name('teacher-shalgalt-asuult-add');
+
+	Route::post('shalgalt/shalgalt/delete/',[ShalgaltController::class, 'shalgalt_delete'])->name('teacher-shalgalt-delete-ajax');
+	Route::post('shalgalt/add',[ShalgaltController::class, 'store'])->name('teacher-shalgalt-save');
+	Route::post('shalgalt/asuult/{id}/add',[ShalgaltController::class, 'asuult_store'])->name('teacher-shalgalt-asuult-save');
+	Route::post('shalgalt/asuult/delete/',[ShalgaltController::class, 'asuult_delete'])->name('teacher-shalgalt-asuult-delete-ajax');
+
 	// Huvaari
 	Route::get('huvaari',[HuvaariController::class, 'index'])->name('teacher-huvaari');
 	Route::get('huvaari/bagsh/{bagshId}',[HuvaariController::class, 'bagsh'])->name('teacher-huvaari-bagsh');
@@ -126,6 +140,18 @@ Route::group(['prefix' => 'teacher','middleware' => 'teacherauth'], function () 
 
 	// Eschool
 	Route::get('eschool',[EschoolController::class, 'index'])->name('teacher-eschool');
+	Route::get('eschool/{slug}/sedevs',[EschoolController::class, 'sedevs'])->name('teacher-eschool-sedevs');
+	Route::get('eschool/{slug}/sedev/{id}',[EschoolController::class, 'sedev'])->name('teacher-eschool-sedev');
+	Route::get('eschool/{slug}/sedev/add',[EschoolController::class, 'sedevAdd'])->name('teacher-eschool-sedev-add');
+
+	Route::get('eschool/{slug}/sedev/{id}/aguulga/add',[AguulgaController::class, 'aguulgaAdd'])->name('teacher-eschool-aguulga-add');
+
+	Route::post('eschool/{slug}/sedev/save',[EschoolController::class, 'sedevSave'])->name('teacher-eschool-sedev-save');
+	Route::post('eschool/{slug}/sedev/{id}/aguulga/save',[AguulgaController::class, 'aguulgaSave'])->name('teacher-eschool-aguulga-save');
+	Route::post('eschool/{slug}/sedev/{id}/aguulga/uploads',[AguulgaController::class, 'aguulgaUploads'])->name('teacher-eschool-aguulga-uploads');
+
+	// Event
+	Route::get('events',[EventController::class, 'index'])->name('teacher-events');
 
 	// Settings
 	Route::get('settings',[SettingsController::class, 'index'])->name('teacher-settings');

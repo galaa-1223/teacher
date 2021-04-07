@@ -128,14 +128,33 @@ return [
             'icon' => 'calendar',
             'page_name' => 'calendar',
             'title' => 'Үйл явдал',
-            'link' => '/teacher/calendar'
+            'link' => '/teacher/events'
         ],
-        
         'eschool' => [
             'icon' => 'smartphone',
             'page_name' => 'eschool',
             'title' => 'Eschool',
-            'link' => '/teacher/eschool'
+            'link' => null,
+            'sub_menu' => [
+                'ehicheel' => [
+                    'icon' => 'watch',
+                    'page_name' => 'eschool',
+                    'title' => 'Eschool',
+                    'link' => '/teacher/eschool'
+                ],
+                'edaalgavar' => [
+                    'icon' => 'edit',
+                    'page_name' => 'edaalgavar',
+                    'title' => 'Даалгавар',
+                    'link' => '/teacher/students'
+                ],
+                'eshalgalt' => [
+                    'icon' => 'edit',
+                    'page_name' => 'eshalgalt',
+                    'title' => 'Шалгалт',
+                    'link' => '/teacher/shalgalt'
+                ]
+            ]
         ],
         'news' => [
             'icon' => 'message-square',

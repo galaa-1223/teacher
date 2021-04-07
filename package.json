@@ -29,6 +29,7 @@
         "style-loader": "1",
         "svg-loaders": "^0.2.0",
         "tailwindcss": "^2.0.3",
+        "tailwindcss-responsive-embed": "^1.0.0",
         "webpack-dev-server": "^4.0.0-beta.0"
     },
     "dependencies": {

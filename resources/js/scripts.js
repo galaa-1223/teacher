@@ -31,6 +31,5 @@ import Toastify from "toastify-js";
         cash("#remove-image").show();
     });
 
-
 })(cash);
 

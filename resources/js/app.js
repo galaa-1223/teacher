@@ -21,7 +21,7 @@ import "./validation";
 import "./zoom";
 import "./notification";
 import "./tabulator";
-// import "./calendar";
+import "./calendar";
 
 /*
 |--------------------------------------------------------------------------
